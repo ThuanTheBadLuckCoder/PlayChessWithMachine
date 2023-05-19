@@ -1,6 +1,6 @@
 package src.com.chess.engine.board;
 
-import src.com.chess.engine.pieces.Tile;
+import org.carrot2.shaded.guava.common.collect.Iterables;
 
 public class Board {
     public Tile getTile(final int tileCoordinate) {

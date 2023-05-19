@@ -1,5 +1,6 @@
 package src.com.chess.engine.board;
 
+import org.carrot2.shaded.guava.common.collect.ImmutableMap;
 import src.com.chess.engine.pieces.Piece;
 
 import java.util.Collections;
