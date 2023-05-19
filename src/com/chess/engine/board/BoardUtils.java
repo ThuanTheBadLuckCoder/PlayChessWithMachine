@@ -1,5 +1,6 @@
 package src.com.chess.engine.board;
 
+import src.com.chess.engine.pieces.King;
 import src.com.chess.engine.pieces.Piece;
 
 import java.util.*;
