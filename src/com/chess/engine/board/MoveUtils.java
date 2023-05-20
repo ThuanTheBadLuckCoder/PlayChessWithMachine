@@ -3,6 +3,8 @@ package src.com.chess.engine.board;
 import java.util.ArrayList;
 import java.util.List;
 
+import static src.com.chess.engine.board.Move.*;
+
 public enum MoveUtils {
 
     INSTANCE;
