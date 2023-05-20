@@ -6,7 +6,7 @@ import src.com.chess.engine.Alliance;
 import src.com.chess.engine.board.Board;
 import src.com.chess.engine.board.BoardUtils;
 import src.com.chess.engine.board.Move;
-import src.com.chess.engine.player.MoveTransition;
+import src.com.chess.engine.board.MoveTransition;
 import src.com.chess.engine.player.Player;
 
 import java.util.Collection;

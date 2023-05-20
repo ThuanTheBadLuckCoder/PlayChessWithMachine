@@ -5,7 +5,6 @@ import src.com.chess.engine.board.BoardUtils;
 import src.com.chess.engine.board.Move;
 import src.com.chess.engine.board.MoveUtils;
 import src.com.chess.engine.pieces.Piece;
-import src.com.chess.engine.player.MoveTransition;
 import src.com.chess.engine.player.Player;
 
 import javax.imageio.ImageIO;
