@@ -1,4 +1,4 @@
-package src.com.chess.engine.gui;
+package src.com.chess.gui;
 
 import src.com.chess.engine.board.Board;
 import src.com.chess.engine.board.Move;

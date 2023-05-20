@@ -1,4 +1,4 @@
-package src.com.chess.engine.gui;
+package src.com.chess.gui;
 
 public class TakenPiecesPanel {
 }
