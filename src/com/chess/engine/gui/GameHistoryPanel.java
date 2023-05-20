@@ -5,6 +5,7 @@ import src.com.chess.engine.board.Move;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameHistoryPanel extends JPanel {
     private final DataModel model;
@@ -22,7 +23,7 @@ public class GameHistoryPanel extends JPanel {
         this.setVisible(true);
     }
     void redo(final Board board,
-              final MoveLog moveLog){
+              final Table.MoveLog moveLog){
         int currentRow =0;
         this.model.clear();
         for(final Move move : moveHistory.getMoves()){
