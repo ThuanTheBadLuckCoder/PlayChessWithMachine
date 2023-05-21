@@ -6,9 +6,9 @@ import static src.com.chess.engine.classic.board.Move.MoveFactory;
 
 import java.util.*;
 
-public enum BoardUtils {
-    INSTANCE;
+public enum  BoardUtils {
 
+    INSTANCE;
 
     public final List<Boolean> FIRST_COLUMN = initColumn(0);
     public final List<Boolean> SECOND_COLUMN = initColumn(1);
@@ -32,30 +32,27 @@ public enum BoardUtils {
     public static final int NUM_TILES_PER_ROW = 8;
     public static final int NUM_TILES = 64;
 
-    private static List<Boolean> initColumn(int columnNumber) {/*method that initializes a column with the specified column number.
-        It uses a Boolean array to represent the column, where the tiles belonging to the column are marked as true.*/
+    private static List<Boolean> initColumn(int columnNumber) {
         final Boolean[] column = new Boolean[NUM_TILES];
         Arrays.fill(column, false);
         do {
             column[columnNumber] = true;
             columnNumber += NUM_TILES_PER_ROW;
-        } while(columnNumber < NUM_TILES);
+        } while (columnNumber < NUM_TILES);
         return Collections.unmodifiableList(Arrays.asList((column)));
     }
 
-    private static List<Boolean> initRow(int rowNumber) {/*method that initializes a row with the specified row number.
-        it uses a Boolean array to represent the row, with tiles belonging to the row marked as true. */
+    private static List<Boolean> initRow(int rowNumber) {
         final Boolean[] row = new Boolean[NUM_TILES];
         Arrays.fill(row, false);
         do {
             row[rowNumber] = true;
             rowNumber++;
-        } while(rowNumber % NUM_TILES_PER_ROW != 0);
+        } while (rowNumber % NUM_TILES_PER_ROW != 0);
         return Collections.unmodifiableList(Arrays.asList(row));
     }
 
-    private Map<String, Integer> initializePositionToCoordinateMap() {/*method initializes a map that maps algebraic notation positions
-        (e.g., "a1", "b2") to their corresponding coordinates on the board (0 to 63).*/
+    private Map<String, Integer> initializePositionToCoordinateMap() {
         final Map<String, Integer> positionToCoordinate = new HashMap<>();
         for (int i = START_TILE_INDEX; i < NUM_TILES; i++) {
             positionToCoordinate.put(ALGEBRAIC_NOTATION.get(i), i);
@@ -63,7 +60,7 @@ public enum BoardUtils {
         return Collections.unmodifiableMap(positionToCoordinate);
     }
 
-    private static List<String> initializeAlgebraicNotation() {/*method initializes a list of strings representing algebraic notation positions in a standard chess board.*/
+    private static List<String> initializeAlgebraicNotation() {
         return Collections.unmodifiableList(Arrays.asList(
                 "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8",
                 "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7",
@@ -75,29 +72,29 @@ public enum BoardUtils {
                 "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"));
     }
 
-    public static boolean isValidTileCoordinate(final int coordinate) {/*method checks if a given coordinate is a valid tile coordinate on the chess board.*/
+    public static boolean isValidTileCoordinate(final int coordinate) {
         return coordinate >= START_TILE_INDEX && coordinate < NUM_TILES;
     }
 
-    public int getCoordinateAtPosition(final String position) {/*method retrieves the coordinate on the board corresponding to the given algebraic notation position*/
+    public int getCoordinateAtPosition(final String position) {
         return POSITION_TO_COORDINATE.get(position);
     }
 
-    public String getPositionAtCoordinate(final int coordinate) {/*method retrieves the algebraic notation position corresponding to the given coordinate on the board.*/
+    public String getPositionAtCoordinate(final int coordinate) {
         return ALGEBRAIC_NOTATION.get(coordinate);
     }
 
-    public static boolean isThreatenedBoardImmediate(final Board board) {/*method checks if the board is in an immediate threatened state, where either the white or black player is in check*/
+    public static boolean isThreatenedBoardImmediate(final Board board) {
         return board.whitePlayer().isInCheck() || board.blackPlayer().isInCheck();
     }
 
-    public static boolean kingThreat(final Move move) {/*method checks if a move puts the current player's king under threat.*/
+    public static boolean kingThreat(final Move move) {
         final Board board = move.getBoard();
         final MoveTransition transition = board.currentPlayer().makeMove(move);
         return transition.getToBoard().currentPlayer().isInCheck();
     }
 
-    public static boolean isKingPawnTrap(final Board board,/*method checks if a king is trapped by an opponent pawn*/
+    public static boolean isKingPawnTrap(final Board board,
                                          final King king,
                                          final int frontTile) {
         final Piece piece = board.getPiece(frontTile);
@@ -106,20 +103,20 @@ public enum BoardUtils {
                 piece.getPieceAllegiance() != king.getPieceAllegiance();
     }
 
-    public static int mvvlva(final Move move) {/*method calculates the Most Valuable Victim / Least Valuable Attacker (MVV/LVA) score for a move. It is a heuristic used in move ordering to prioritize capturing moves*/
+    public static int mvvlva(final Move move) {
         final Piece movingPiece = move.getMovedPiece();
-        if(move.isAttack()) {
+        if (move.isAttack()) {
             final Piece attackedPiece = move.getAttackedPiece();
-            return (attackedPiece.getPieceValue() - movingPiece.getPieceValue() +  Piece.PieceType.KING.getPieceValue()) * 100;
+            return (attackedPiece.getPieceValue() - movingPiece.getPieceValue() + Piece.PieceType.KING.getPieceValue()) * 100;
         }
         return Piece.PieceType.KING.getPieceValue() - movingPiece.getPieceValue();
     }
 
-    public static List<Move> lastNMoves(final Board board, int N) {/*method retrieves the last N moves from the board's move history*/
+    public static List<Move> lastNMoves(final Board board, int N) {
         final List<Move> moveHistory = new ArrayList<>();
         Move currentMove = board.getTransitionMove();
         int i = 0;
-        while(currentMove != MoveFactory.getNullMove() && i < N) {
+        while (currentMove != MoveFactory.getNullMove() && i < N) {
             moveHistory.add(currentMove);
             currentMove = currentMove.getBoard().getTransitionMove();
             i++;
@@ -127,19 +124,8 @@ public enum BoardUtils {
         return Collections.unmodifiableList(moveHistory);
     }
 
-    public static boolean isEndGame(final Board board) {/*method checks if the game has reached an end state, either checkmate or stalemate*/
+    public static boolean isEndGame(final Board board) {
         return board.currentPlayer().isInCheckMate() ||
                 board.currentPlayer().isInStaleMate();
     }
-
-    private BoardUtils() {
-        throw new RuntimeException("You cannot instantiate me!");
-
-    }
-
-    public static boolean isValidCoordinate(final int coordinate) {
-        return coordinate >= 0 && coordinate < NUM_TILES;
-    }
-
-
 }
