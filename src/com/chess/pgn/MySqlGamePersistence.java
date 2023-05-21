@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.chess.engine.classic.board.Board;
-import com.chess.engine.classic.board.Move;
-import com.chess.engine.classic.player.Player;
+import src.com.chess.engine.classic.board.Board;
+import src.com.chess.engine.classic.board.Move;
+import src.com.chess.engine.classic.player.Player;
 
 public class MySqlGamePersistence implements PGNPersistence {
 

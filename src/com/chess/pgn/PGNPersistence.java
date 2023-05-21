@@ -1,8 +1,8 @@
 package src.com.chess.pgn;
 
-import com.chess.engine.classic.board.Board;
-import com.chess.engine.classic.board.Move;
-import com.chess.engine.classic.player.Player;
+import src.com.chess.engine.classic.board.Board;
+import src.com.chess.engine.classic.board.Move;
+import src.com.chess.engine.classic.player.Player;
 
 public interface PGNPersistence {
 

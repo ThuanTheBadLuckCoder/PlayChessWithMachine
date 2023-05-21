@@ -1,23 +1,29 @@
 package src.com.chess.gui;
 
-import src.com.chess.engine.board.Board;
-import src.com.chess.engine.board.BoardUtils;
-import src.com.chess.engine.board.Move;
-import src.com.chess.engine.board.MoveUtils;
-import src.com.chess.engine.pieces.Piece;
-import src.com.chess.engine.player.Player;
+import src.com.chess.engine.classic.board.*;
+import src.com.chess.engine.classic.board.Move.MoveFactory;
+import src.com.chess.engine.classic.pieces.Piece;
+import src.com.chess.engine.classic.player.Player;
+import src.com.chess.engine.classic.player.ai.StandardBoardEvaluator;
+import src.com.chess.engine.classic.player.ai.StockAlphaBeta;
+import src.com.chess.pgn.FenUtilities;
+import src.com.chess.pgn.MySqlGamePersistence;
+import com.google.common.collect.Lists;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.awt.List;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
+import static src.com.chess.pgn.PGNUtilities.persistPGNFile;
+import static src.com.chess.pgn.PGNUtilities.writeGameToPGNFile;
+import static javax.swing.JFrame.setDefaultLookAndFeelDecorated;
 import static javax.swing.SwingUtilities.*;
 
 public final class Table extends Observable {
