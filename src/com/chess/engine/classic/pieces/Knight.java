@@ -1,12 +1,10 @@
-package src.com.chess.engine.pieces;
+package src.com.chess.engine.classic.pieces;
 
-import org.carrot2.shaded.guava.common.collect.ImmutableList;
-
-import src.com.chess.engine.Alliance;
-import src.com.chess.engine.board.Board;
-import src.com.chess.engine.board.BoardUtils;
-import src.com.chess.engine.board.Move;
-import src.com.chess.engine.board.Tile;
+import src.com.chess.engine.classic.Alliance;
+import src.com.chess.engine.classic.board.Board;
+import src.com.chess.engine.classic.board.BoardUtils;
+import src.com.chess.engine.classic.board.Move;
+import src.com.chess.engine.classic.board.Move.MajorAttackMove;
 
 import java.util.*;
 
@@ -57,7 +55,7 @@ public class Knight extends Piece {
             } else {
                 final Alliance pieceAtDestinationAllegiance = pieceAtDestination.getPieceAllegiance();
                 if (this.pieceAlliance != pieceAtDestinationAllegiance) {
-                    legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate,
+                    legalMoves.add(new MajorAttackMove(board, this, candidateDestinationCoordinate,
                             pieceAtDestination));
                 }
             }

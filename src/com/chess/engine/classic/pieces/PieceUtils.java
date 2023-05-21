@@ -1,9 +1,9 @@
-package src.com.chess.engine.pieces;
+package src.com.chess.engine.classic.pieces;
 
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
-import src.com.chess.engine.Alliance;
-import src.com.chess.engine.board.BoardUtils;
+import src.com.chess.engine.classic.Alliance;
+import src.com.chess.engine.classic.board.BoardUtils;
 
 enum PieceUtils {
 

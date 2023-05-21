@@ -1,11 +1,11 @@
-package src.com.chess.engine.pieces;
+package src.com.chess.engine.classic.pieces;
 
-import src.com.chess.engine.Alliance;
-import src.com.chess.engine.board.Board;
-import src.com.chess.engine.board.BoardUtils;
-import src.com.chess.engine.board.Move;
-import src.com.chess.engine.board.Move.AttackMove;
-import src.com.chess.engine.board.Move.MajorMove;
+import src.com.chess.engine.classic.Alliance;
+import src.com.chess.engine.classic.board.Board;
+import src.com.chess.engine.classic.board.BoardUtils;
+import src.com.chess.engine.classic.board.Move;
+import src.com.chess.engine.classic.board.Move.MajorAttackMove;
+import src.com.chess.engine.classic.board.Move.MajorMove;
 
 import java.util.*;
 
@@ -95,7 +95,7 @@ public final class King extends Piece {
             } else {
                 final Alliance pieceAtDestinationAllegiance = pieceAtDestination.getPieceAllegiance();/*the method checks whether the piece at the destination coordinate belongs to the same alliance as the king or not*/
                 if (this.pieceAlliance != pieceAtDestinationAllegiance) {
-                    legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate,
+                    legalMoves.add(new MajorAttackMove(board, this, candidateDestinationCoordinate,
                             pieceAtDestination));/*If the piece belongs to the opposing alliance, the move is considered a legal MajorAttackMove and is added to the list of legal moves*/
                 }
             }
