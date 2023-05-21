@@ -2,9 +2,10 @@ package src.com.chess.engine.classic.board;
 
 import src.com.chess.engine.classic.pieces.King;
 import src.com.chess.engine.classic.pieces.Piece;
-import static src.com.chess.engine.classic.board.Move.MoveFactory;
 
 import java.util.*;
+
+import static src.com.chess.engine.classic.board.Move.MoveFactory;
 
 public enum  BoardUtils {
 
