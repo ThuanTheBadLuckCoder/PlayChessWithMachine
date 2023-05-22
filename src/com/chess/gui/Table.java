@@ -46,14 +46,15 @@ public final class Table extends Observable {
     private Color lightTileColor = Color.decode("#FFFACD");
     private Color darkTileColor = Color.decode("#593E1A");
 
-    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(600, 600);
+    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(1000, 1000);
     private static final Dimension BOARD_PANEL_DIMENSION = new Dimension(400, 350);
     private static final Dimension TILE_PANEL_DIMENSION = new Dimension(10, 10);
 
     private static final Table INSTANCE = new Table();
 
     private Table() {
-        this.gameFrame = new JFrame("BlackWidow");
+        this.gameFrame = new JFrame("PlayChessWithMachine");
+        this.gameFrame.setResizable(false);
         final JMenuBar tableMenuBar = new JMenuBar();
         populateMenuBar(tableMenuBar);
         this.gameFrame.setJMenuBar(tableMenuBar);
@@ -81,9 +82,12 @@ public final class Table extends Observable {
         this.gameFrame.setVisible(true);
     }
 
+
     public static Table get() {
         return INSTANCE;
     }
+
+
 
     private JFrame getGameFrame() {
         return this.gameFrame;
@@ -561,6 +565,7 @@ public final class Table extends Observable {
         }
 
     }
+
 
     enum BoardDirection {
         NORMAL {
