@@ -14,9 +14,7 @@ public class MainMenu extends JFrame {
     static JButton HowToPlay = new JButton("Setting");
     static JButton Exit = new JButton("Exit");
     static JFrame Tutorial;
-    static JLabel text;
 
-    ActionEvent e;
 
 
     public MainMenu() {
@@ -43,10 +41,10 @@ public class MainMenu extends JFrame {
         MainMenuFr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         try {
-            ImageIcon image = new ImageIcon(getClass().getResource("start.jpg"));
-            JLabel displayField = new JLabel(image);
+            ImageIcon picture = new ImageIcon(getClass().getResource("start.jpg"));
+            JLabel displayField = new JLabel(picture);
             MainMenuFr.add(displayField);
-        } catch (Exception i) {
+        } catch (Exception e) {
             System.out.println("Image cannot be found");
         }
 
