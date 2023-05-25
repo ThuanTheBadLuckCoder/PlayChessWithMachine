@@ -33,13 +33,7 @@ public class MainMenu extends JFrame {
         MainMenuFr.add(HowToPlay);
         MainMenuFr.add(Exit);
 
-        try {
-            ImageIcon image = new ImageIcon(getClass().getResource("start.jpg"));
-            JLabel displayField = new JLabel(image);
-            MainMenuFr.add(displayField);
-        } catch (Exception i) {
-            //System.out.println("Image cannot be found");
-        }
+
 
         MainMenuFr.setSize(400, 420);
         MainMenuFr.setLayout(null);
@@ -47,6 +41,14 @@ public class MainMenu extends JFrame {
         MainMenuFr.setVisible(true);
         MainMenuFr.setLocationRelativeTo(null);
         MainMenuFr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        try {
+            ImageIcon image = new ImageIcon(getClass().getResource("start.jpg"));
+            JLabel displayField = new JLabel(image);
+            MainMenuFr.add(displayField);
+        } catch (Exception i) {
+            System.out.println("Image cannot be found");
+        }
 
 
         Start.addActionListener(new ActionListener() {
