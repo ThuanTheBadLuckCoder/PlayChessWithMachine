@@ -46,7 +46,7 @@ public final class Table extends Observable {
     private Color lightTileColor = Color.decode("#FFFACD");
     private Color darkTileColor = Color.decode("#593E1A");
 
-    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(1000, 1000);
+    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(1000, 900);
     private static final Dimension BOARD_PANEL_DIMENSION = new Dimension(400, 350);
     private static final Dimension TILE_PANEL_DIMENSION = new Dimension(10, 10);
 
@@ -74,11 +74,11 @@ public final class Table extends Observable {
         this.gameFrame.add(this.takenPiecesPanel, BorderLayout.WEST);
         this.gameFrame.add(this.boardPanel, BorderLayout.CENTER);
         this.gameFrame.add(this.gameHistoryPanel, BorderLayout.EAST);
-        this.gameFrame.add(debugPanel, BorderLayout.SOUTH);
+//        this.gameFrame.add(debugPanel, BorderLayout.SOUTH);
         setDefaultLookAndFeelDecorated(true);
         this.gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.gameFrame.setSize(OUTER_FRAME_DIMENSION);
-        center(this.gameFrame);
+        gameFrame.setLocationRelativeTo(null);
         this.gameFrame.setVisible(true);
     }
 
@@ -143,14 +143,7 @@ public final class Table extends Observable {
         tableMenuBar.add(createOptionsMenu());
     }
 
-    private static void center(final JFrame frame) {
-        final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        final int w = frame.getSize().width;
-        final int h = frame.getSize().height;
-        final int x = (dim.width - w) / 2;
-        final int y = (dim.height - h) / 2;
-        frame.setLocation(x, y);
-    }
+
 
     private JMenu createFileMenu() {
         final JMenu filesMenu = new JMenu("File");
