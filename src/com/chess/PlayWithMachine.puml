@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+class BlackWidow {
++ main: void(final String[] args) throws Exception {
+        Table.get().show();
+    }
+}
+
+@enduml
