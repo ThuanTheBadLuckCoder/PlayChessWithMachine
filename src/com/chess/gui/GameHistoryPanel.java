@@ -20,7 +20,7 @@ class GameHistoryPanel extends JPanel {
     private final JScrollPane scrollPane;
     private static final Dimension HISTORY_PANEL_DIMENSION = new Dimension(100, 40);
 
-    GameHistoryPanel() {
+    public GameHistoryPanel() {
         this.setLayout(new BorderLayout());
         this.model = new DataModel();
         final JTable table = new JTable(model);

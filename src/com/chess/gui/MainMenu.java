@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 
 
 public class MainMenu extends JFrame {
-    static JFrame MainMenuFr = new JFrame("PlayChessWithMachine");
-    static JButton Start = new JButton("Start");
-    static JButton HowToPlay = new JButton("Setting");
-    static JButton Exit = new JButton("Exit");
-    static JFrame Tutorial;
+    private static JFrame MainMenuFr = new JFrame("PlayChessWithMachine");
+    private static JButton Start = new JButton("Start");
+    private static JButton HowToPlay = new JButton("Setting");
+    private static JButton Exit = new JButton("Exit");
+    private static JFrame Tutorial;
 
 
 
