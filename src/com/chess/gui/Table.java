@@ -46,7 +46,7 @@ public final class Table extends Observable {
     private Color lightTileColor = Color.decode("#FFFACD");
     private Color darkTileColor = Color.decode("#593E1A");
 
-    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(1000, 900);
+    private static final Dimension OUTER_FRAME_DIMENSION = new Dimension(900, 800);
     private static final Dimension BOARD_PANEL_DIMENSION = new Dimension(400, 350);
     private static final Dimension TILE_PANEL_DIMENSION = new Dimension(10, 10);
 
